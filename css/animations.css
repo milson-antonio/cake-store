@@ -1,0 +1,195 @@
+/* Animations CSS for Cake Store
+   Adding subtle animations to enhance user experience
+*/
+
+/* General transitions for all elements */
+.navbar-brand img, 
+.nav-item, 
+.social-icons li,
+.btn,
+.product-item,
+figure img:not(.jarallax-img) {
+  transition: all 0.3s ease-out;
+}
+
+/* Logo animation */
+.navbar-brand img {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Navigation menu hover effect */
+.nav-item.text-hover .nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item.text-hover .nav-link:after {
+  content: attr(data-effect);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-item.text-hover .nav-link:hover:after {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.nav-item.text-hover .nav-link:hover {
+  transform: translateY(-5px);
+}
+
+/* Social media icons hover effect */
+.list-unstyled li a svg {
+  transition: transform 0.3s ease;
+}
+
+.list-unstyled li a:hover svg {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Button hover animation */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-out;
+}
+
+.btn:hover:after {
+  left: 100%;
+}
+
+/* Product item animations */
+.product-item {
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
+}
+
+.product-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced image hover effects */
+figure:not(.jarallax) {
+  overflow: hidden;
+}
+
+figure:not(.jarallax) img:not(.jarallax-img) {
+  transition: transform 0.5s ease-out;
+}
+
+figure:not(.jarallax):hover img:not(.jarallax-img) {
+  transform: scale(1.05);
+}
+
+/* Section title animations */
+.display-5, .display-3, .display-1 {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Preloader animation */
+.preloader {
+  animation: fadeOut 1s ease-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Additional AOS animations */
+[data-aos="fade-up-right"] {
+  transform: translate3d(-50px, 50px, 0);
+}
+
+[data-aos="fade-up-right"].aos-animate {
+  transform: translate3d(0, 0, 0);
+}
+
+[data-aos="fade-up-left"] {
+  transform: translate3d(50px, 50px, 0);
+}
+
+[data-aos="fade-up-left"].aos-animate {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Pulse animation for call-to-action buttons */
+.btn[style*="background-color: #25D366"] {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Text reveal animation for paragraphs */
+p {
+  overflow: hidden;
+}
+
+[data-aos="text-reveal"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="text-reveal"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
